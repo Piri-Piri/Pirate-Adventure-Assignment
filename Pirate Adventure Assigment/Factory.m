@@ -116,7 +116,7 @@
     
     
     Tile *tile11 = [[Tile alloc] init];
-    tile11.tileImage = [UIImage imageNamed:@"PirateTeasurer2.jpeg"];
+    tile11.tileImage = [UIImage imageNamed:@"PirateTreasurer2.jpeg"];
     tile11.tileAction = @"Swim deeper";
     tile11.tileStory = @"In the deep of the sea many things live and many things can be found. Will the fortune bring help or ruin?";
     tile11.healthEffect = -7;
