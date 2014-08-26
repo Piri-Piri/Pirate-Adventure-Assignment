@@ -11,5 +11,6 @@
 @interface Boss : NSObject
 
 @property (nonatomic) int health;
+@property (nonatomic) Boolean hasAttacked;
 
 @end
