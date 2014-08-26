@@ -100,6 +100,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6319D89C19AD35EF003BE43C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6319D89D19AD35F8003BE43C /* Factory */,
+				6319D89F19AD3651003BE43C /* Characters */,
+				6319D89E19AD3639003BE43C /* Items */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6319D89D19AD35F8003BE43C /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				6361489719ABA5A90030A35D /* Tile.h */,
+				6361489819ABA5A90030A35D /* Tile.m */,
+				6361489419ABA5900030A35D /* Factory.h */,
+				6361489519ABA5900030A35D /* Factory.m */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		6319D89E19AD3639003BE43C /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				636148A019ABA6980030A35D /* Weapon.h */,
+				636148A119ABA6980030A35D /* Weapon.m */,
+				636148A319ABA6A60030A35D /* Armor.h */,
+				636148A419ABA6A60030A35D /* Armor.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		6319D89F19AD3651003BE43C /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				6361489D19ABA5CF0030A35D /* Pirate.h */,
+				6361489E19ABA5CF0030A35D /* Pirate.m */,
+				6361489A19ABA5BD0030A35D /* Boss.h */,
+				6361489B19ABA5BD0030A35D /* Boss.m */,
+			);
+			name = Characters;
+			sourceTree = "<group>";
+		};
 		6361484D19AA8DFF0030A35D = {
 			isa = PBXGroup;
 			children = (
@@ -121,20 +164,9 @@
 		6361485819AA8DFF0030A35D /* Pirate Adventure Assigment */ = {
 			isa = PBXGroup;
 			children = (
+				6319D89C19AD35EF003BE43C /* Model */,
 				6361485D19AA8DFF0030A35D /* AppDelegate.h */,
 				6361485E19AA8DFF0030A35D /* AppDelegate.m */,
-				6361489D19ABA5CF0030A35D /* Pirate.h */,
-				6361489E19ABA5CF0030A35D /* Pirate.m */,
-				636148A019ABA6980030A35D /* Weapon.h */,
-				636148A119ABA6980030A35D /* Weapon.m */,
-				636148A319ABA6A60030A35D /* Armor.h */,
-				636148A419ABA6A60030A35D /* Armor.m */,
-				6361489A19ABA5BD0030A35D /* Boss.h */,
-				6361489B19ABA5BD0030A35D /* Boss.m */,
-				6361489719ABA5A90030A35D /* Tile.h */,
-				6361489819ABA5A90030A35D /* Tile.m */,
-				6361489419ABA5900030A35D /* Factory.h */,
-				6361489519ABA5900030A35D /* Factory.m */,
 				6361486019AA8DFF0030A35D /* ViewController.h */,
 				6361486119AA8DFF0030A35D /* ViewController.m */,
 				6361486319AA8DFF0030A35D /* Main.storyboard */,
