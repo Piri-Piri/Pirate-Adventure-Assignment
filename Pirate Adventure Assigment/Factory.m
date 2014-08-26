@@ -98,7 +98,7 @@
     
     
     Tile *tile9 = [[Tile alloc] init];
-    tile9.tileImage = [UIImage imageNamed:@"PirateTreasurer.jpg"];
+    tile9.tileImage = [UIImage imageNamed:@"PirateTreasurer.jpeg"];
     tile9.tileAction = @"Take Treasurer";
     tile9.tileStory = @"You stumble upon a hidden cave of pirate treasurer";
     tile9.healthEffect = 20;
@@ -128,7 +128,7 @@
     tile12.tileAction = @"Fight!";
     tile12.tileStory = @"Your final faceoff with the fearsome pirate boss";
     tile12.healthEffect = -15;
-    tile12.isTileABossFight = NO;
+    tile12.isTileABossFight = YES;
     NSArray *column4Array = [[NSArray alloc] initWithObjects:tile10, tile11, tile12, nil];
     
     return [[NSArray alloc] initWithObjects:column1Array, column2Array, column3Array, column4Array, nil];
