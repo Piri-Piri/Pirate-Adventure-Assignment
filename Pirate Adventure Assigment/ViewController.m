@@ -48,11 +48,13 @@
         /* UIAlertView objects take multiple parameters. For now we will only use strings for a title, message and cancel button. Make sure to set other buttons and delegate to nil */
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Death Message" message:@"You have died please restart the game!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alertView show];
+        [self resetGame:nil];
     }
     /* If the bosses health is below 0 show an alertview that tells the user they won the game */
     else if(self.boss.health <= 0){
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Victory message" message:@"You have defeated the evil pirate boss!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alertView show];
+        [self resetGame:nil];
     }
     
     [self updateEnvironment];
