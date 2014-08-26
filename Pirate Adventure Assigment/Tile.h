@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString *tileStory;
 @property (nonatomic, strong) NSString *tileAction;
 @property (nonatomic) Boolean isTileABossFight;
+@property (nonatomic) Boolean isTileActionForced;
+@property (nonatomic) Boolean isTileActionPerformed;
 
 @property (nonatomic) int healthEffect;
 @property (nonatomic, strong) Weapon *weapon;
