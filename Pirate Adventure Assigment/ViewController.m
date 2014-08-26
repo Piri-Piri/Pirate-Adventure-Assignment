@@ -23,7 +23,9 @@
     self.tiles =[factory tiles];
     self.pirate = [factory pirate];
     self.boss = [factory boss];
+    
     self.currentPosition = CGPointMake(0, 0);
+    self.boss.hasAttacked = NO;
     
     [self evaluteValidMoves];
     [self updateCharacterStatsForArmor:nil withWeapon:nil withHealthEffect:0];
@@ -40,9 +42,14 @@
     
     if (currentTile.isTileABossFight){
         self.boss.health = self.boss.health - self.pirate.damage;
+        self.boss.hasAttacked = YES;
     }
     
-    [self updateCharacterStatsForArmor:currentTile.armor withWeapon:currentTile.weapon withHealthEffect:currentTile.healthEffect];
+    if (!currentTile.isTileActionPerformed || currentTile.isTileABossFight){
+        [self updateCharacterStatsForArmor:currentTile.armor withWeapon:currentTile.weapon withHealthEffect:currentTile.healthEffect];
+    }
+    
+    currentTile.isTileActionPerformed = YES;
     
     if(self.pirate.health <=0){
         /* UIAlertView objects take multiple parameters. For now we will only use strings for a title, message and cancel button. Make sure to set other buttons and delegate to nil */
@@ -56,8 +63,9 @@
         [alertView show];
         [self resetGame:nil];
     }
-    
+    [self evaluteValidMoves];
     [self updateEnvironment];
+    
 }
 
 - (IBAction)resetGame:(UIButton *)sender {
@@ -96,7 +104,19 @@
     self.westButton.hidden = [self tileExistsAtPoint:CGPointMake(self.currentPosition.x-1, self.currentPosition.y)];
     self.eastButton.hidden = [self tileExistsAtPoint:CGPointMake(self.currentPosition.x+1, self.currentPosition.y)];
     self.southButton.hidden = [self tileExistsAtPoint:CGPointMake(self.currentPosition.x, self.currentPosition.y-1)];
-
+    
+    Tile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    if (currentTile.isTileActionForced){
+        self.northButton.enabled = currentTile.isTileActionPerformed;
+        self.westButton.enabled = currentTile.isTileActionPerformed;
+        self.eastButton.enabled = currentTile.isTileActionPerformed;
+        self.southButton.enabled = currentTile.isTileActionPerformed;
+    } else if (currentTile.isTileABossFight){
+        self.northButton.enabled = self.boss.hasAttacked;
+        self.westButton.enabled = self.boss.hasAttacked;
+        self.eastButton.enabled = self.boss.hasAttacked;
+        self.southButton.enabled = self.boss.hasAttacked;
+    }
 }
 
 - (BOOL)tileExistsAtPoint:(CGPoint)point {
