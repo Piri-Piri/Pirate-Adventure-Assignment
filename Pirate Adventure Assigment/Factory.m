@@ -14,6 +14,14 @@
 
 -(NSArray *)tiles
 {
+    /*
+     #######################################################################
+     ### Factoring and initialize all tiles in the 3x4 coordinate system ###
+     #######################################################################
+     
+     ToDo: Randomize titles and balance game to solve boss fight only with a certain path towards him (super-duper-xtra-credit). ^^
+     */
+    
     Tile *tile1 = [[Tile alloc] init];
     tile1.tileImage = [UIImage imageNamed:@"PirateStart.jpg"];
     tile1.tileAction = @"Take the sword";
@@ -156,14 +164,17 @@
 }
 
 - (Pirate *)pirate{
+    // create the lion-hearted pirate
     Pirate *pirate = [[Pirate alloc] init];
     pirate.health = 100;
     
+    // initial armor
     Armor *armor = [[Armor alloc] init];
     armor.name = @"Cloak";
     armor.health = 5;
     pirate.currentArmor = armor;
     
+    // initial weapon
     Weapon *weapon = [[Weapon alloc] init];
     weapon.name = @"Fists";
     weapon.damage = 10;
@@ -174,6 +185,7 @@
 
 -(Boss *)boss
 {
+    // create the final boss
     Boss *boss = [[Boss alloc] init];
     boss.health = 65;
     return boss;
