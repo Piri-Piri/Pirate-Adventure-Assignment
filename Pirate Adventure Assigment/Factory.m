@@ -82,7 +82,7 @@
     
     
     Tile *tile7 = [[Tile alloc] init];
-    tile7.tileImage = [UIImage imageNamed:@"PirateShipBattle.jpg"];
+    tile7.tileImage = [UIImage imageNamed:@"PirateShipBattle.jpeg"];
     tile7.tileAction = @"Fight those scum!";
     tile7.tileStory = @"You sight a pirate battle off the coast";
     tile7.healthEffect = -15;
@@ -98,7 +98,7 @@
     
     
     Tile *tile9 = [[Tile alloc] init];
-    tile9.tileImage = [UIImage imageNamed:@"PirateTreasurer.jpeg"];
+    tile9.tileImage = [UIImage imageNamed:@"PirateTreasure.jpeg"];
     tile9.tileAction = @"Take Treasurer";
     tile9.tileStory = @"You stumble upon a hidden cave of pirate treasurer";
     tile9.healthEffect = 20;
@@ -116,7 +116,7 @@
     
     
     Tile *tile11 = [[Tile alloc] init];
-    tile11.tileImage = [UIImage imageNamed:@"PirateTeasure2.jpg"];
+    tile11.tileImage = [UIImage imageNamed:@"PirateTeasurer2.jpeg"];
     tile11.tileAction = @"Swim deeper";
     tile11.tileStory = @"In the deep of the sea many things live and many things can be found. Will the fortune bring help or ruin?";
     tile11.healthEffect = -7;
