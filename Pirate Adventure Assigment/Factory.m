@@ -8,24 +8,25 @@
 
 #import "Factory.h"
 #import "Tile.h"
-
+#import "NSArray+Randomize.h"
+    
 
 @implementation Factory
 
 -(NSArray *)tiles
 {
     /*
-     #######################################################################
-     ### Factoring and initialize all tiles in the 3x4 coordinate system ###
-     #######################################################################
-     
-     ToDo: Randomize titles and balance game to solve boss fight only with a certain path towards him (super-duper-xtra-credit). ^^
+     ####################################################################################
+     ### Factoring and initialize all tiles (randomized) in the 3x4 coordinate system ###
+     ####################################################################################
      */
     
     Tile *tile1 = [[Tile alloc] init];
     tile1.tileImage = [UIImage imageNamed:@"PirateStart.jpg"];
     tile1.tileAction = @"Take the sword";
-    tile1.tileStory = @"Captain, we need a fearless leader such as you to undertake a voyage. You must stop the evil pirate Boss before he steals any more plunder. Would you like a blunted sword to get started?";
+    tile1.tileStory = @"Captain, we need a fearless leader such as you to undertake a voyage.\
+                        You must stop the evil pirate Boss before he steals any more plunder.\
+                        Would you like a blunted sword to get started?";
     Weapon *bluntedSword = [[Weapon alloc] init];
     bluntedSword.name = @"Blunted Sword";
     bluntedSword.damage = 12;
@@ -56,14 +57,13 @@
     tile3.isTileABossFight = NO;
     tile3.isTileActionForced = NO;
     tile3.isTileActionPerformed = NO;
-    NSArray *column1Array = [[NSArray alloc] initWithObjects:tile1, tile2, tile3, nil];
-    
     
     
     Tile *tile4 = [[Tile alloc] init];
     tile4.tileImage = [UIImage imageNamed:@"PirateParrot.jpg"];
     tile4.tileAction = @"Adopt Parrot";
-    tile4.tileStory = @"You have found a parrot can be used in your armor slot! Parrots are a great defender and are fiercly loyal to their captain.";
+    tile4.tileStory = @"You have found a parrot can be used in your armor slot!\
+                        Parrots are a great defender and are fiercly loyal to their captain.";
     Armor *parrotArmor = [[Armor alloc] init];
     parrotArmor.health = 20;
     parrotArmor.name = @"Parrot Armor";
@@ -76,7 +76,8 @@
     Tile *tile5 = [[Tile alloc] init];
     tile5.tileImage = [UIImage imageNamed:@"PirateWeapons.jpeg"];
     tile5.tileAction = @"Take pistol";
-    tile5.tileStory = @"You have stumbled upon a cache of pirate weapons. Would you like to upgrade to a pistol?";
+    tile5.tileStory = @"You have stumbled upon a cache of pirate weapons.\
+                        Would you like to upgrade to a pistol?";
     Weapon *pistolWeapon = [[Weapon alloc] init];
     pistolWeapon.name = @"Pistol";
     pistolWeapon.damage = 12;
@@ -94,8 +95,6 @@
     tile6.isTileABossFight = NO;
     tile6.isTileActionForced = YES;
     tile6.isTileActionPerformed = NO;
-    NSArray *column2Array = [[NSArray alloc] initWithObjects:tile3, tile5, tile6, nil];
-    
     
     
     Tile *tile7 = [[Tile alloc] init];
@@ -126,9 +125,7 @@
     tile9.isTileABossFight = NO;
     tile9.isTileActionForced = NO;
     tile9.isTileActionPerformed = NO;
-    NSArray *column3Array = [[NSArray alloc] initWithObjects:tile7, tile8, tile9, nil];
-    
-    
+
     
     Tile *tile10 = [[Tile alloc] init];
     tile10.tileImage = [UIImage imageNamed:@"PirateAttack.jpg"];
@@ -143,7 +140,8 @@
     Tile *tile11 = [[Tile alloc] init];
     tile11.tileImage = [UIImage imageNamed:@"PirateTreasurer2.jpeg"];
     tile11.tileAction = @"Swim deeper";
-    tile11.tileStory = @"In the deep of the sea many things live and many things can be found. Will the fortune bring help or ruin?";
+    tile11.tileStory = @"In the deep of the sea many things live and many things can be found.\
+                        Will the fortune bring help or ruin?";
     tile11.healthEffect = -7;
     tile11.isTileABossFight = NO;
     tile11.isTileActionForced = NO;
@@ -158,8 +156,44 @@
     tile12.isTileABossFight = YES;
     tile12.isTileActionForced = YES;
     tile12.isTileActionPerformed = NO;
-    NSArray *column4Array = [[NSArray alloc] initWithObjects:tile10, tile11, tile12, nil];
     
+    
+    /* 
+     Randomize tiles excepting tile1 (start) by extending
+     NSArray with a randomize method.
+     */
+    NSArray *randomizedArray = [[[NSArray alloc] initWithObjects:
+                                 tile2, tile3, tile4, tile5,
+                                 tile6, tile7, tile8, tile9,
+                                 tile10, tile11, tile12, nil
+                                 ] randomize];
+    
+    NSArray *column1Array = [[NSArray alloc] initWithObjects:
+                             tile1,
+                             [randomizedArray objectAtIndex:0],
+                             [randomizedArray objectAtIndex:1],
+                             nil
+                             ];
+    NSArray *column2Array = [[NSArray alloc] initWithObjects:
+                             [randomizedArray objectAtIndex:2],
+                             [randomizedArray objectAtIndex:3],
+                             [randomizedArray objectAtIndex:4],
+                             nil
+                             ];
+    NSArray *column3Array = [[NSArray alloc] initWithObjects:
+                             [randomizedArray objectAtIndex:5],
+                             [randomizedArray objectAtIndex:6],
+                             [randomizedArray objectAtIndex:7],
+                             nil
+                             ];
+    NSArray *column4Array = [[NSArray alloc] initWithObjects:
+                             [randomizedArray objectAtIndex:8],
+                             [randomizedArray objectAtIndex:9],
+                             [randomizedArray objectAtIndex:10],
+                             nil
+                             ];
+    // sweep helper array
+    randomizedArray = nil;
     return [[NSArray alloc] initWithObjects:column1Array, column2Array, column3Array, column4Array, nil];
 }
 
