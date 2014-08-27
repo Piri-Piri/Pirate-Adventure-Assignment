@@ -141,18 +141,24 @@
 }
 
 - (void)updateEnvironment{
-    // updating information inside the views
-    Tile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    // add a transition animation
+    [UIView transitionWithView:self.view
+                      duration:1.0
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        // updating information inside the views
+                        Tile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
     
-    self.backgroundImage.image = currentTile.tileImage;
-    self.storyLabel.text = currentTile.tileStory;
+                        self.backgroundImage.image = currentTile.tileImage;
+                        self.storyLabel.text = currentTile.tileStory;
     
-    self.healthLabel.text = [NSString stringWithFormat:@"%i", self.pirate.health];
-    self.damageLabel.text = [NSString stringWithFormat:@"%i", self.pirate.damage];
-    self.weaponLabel.text = self.pirate.currentWeapon.name;
-    self.armorLabel.text = self.pirate.currentArmor.name;
+                        self.healthLabel.text = [NSString stringWithFormat:@"%i", self.pirate.health];
+                        self.damageLabel.text = [NSString stringWithFormat:@"%i", self.pirate.damage];
+                        self.weaponLabel.text = self.pirate.currentWeapon.name;
+                        self.armorLabel.text = self.pirate.currentArmor.name;
     
-    [self.actionButton setTitle:currentTile.tileAction forState:UIControlStateNormal];
+                        [self.actionButton setTitle:currentTile.tileAction forState:UIControlStateNormal];
+                    } completion:nil];
 }
 
 -(void)updateCharacterStatsForArmor:(Armor *)armor withWeapon:(Weapon *)weapon withHealthEffect:(int)healthEffect{
