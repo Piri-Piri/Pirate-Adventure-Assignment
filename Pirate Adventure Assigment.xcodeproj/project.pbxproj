@@ -31,6 +31,7 @@
 		6361489F19ABA5CF0030A35D /* Pirate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361489E19ABA5CF0030A35D /* Pirate.m */; };
 		636148A219ABA6980030A35D /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 636148A119ABA6980030A35D /* Weapon.m */; };
 		636148A519ABA6A60030A35D /* Armor.m in Sources */ = {isa = PBXBuildFile; fileRef = 636148A419ABA6A60030A35D /* Armor.m */; };
+		6376442B19AE783D0026DE7B /* NSArray+Randomize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6376442A19AE783D0026DE7B /* NSArray+Randomize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		636148A119ABA6980030A35D /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		636148A319ABA6A60030A35D /* Armor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armor.h; sourceTree = "<group>"; };
 		636148A419ABA6A60030A35D /* Armor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armor.m; sourceTree = "<group>"; };
+		6376442919AE783D0026DE7B /* NSArray+Randomize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Randomize.h"; sourceTree = "<group>"; };
+		6376442A19AE783D0026DE7B /* NSArray+Randomize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Randomize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,7 @@
 		6361485819AA8DFF0030A35D /* Pirate Adventure Assigment */ = {
 			isa = PBXGroup;
 			children = (
+				6376442819AE77E20026DE7B /* Extension */,
 				6319D89C19AD35EF003BE43C /* Model */,
 				6361485D19AA8DFF0030A35D /* AppDelegate.h */,
 				6361485E19AA8DFF0030A35D /* AppDelegate.m */,
@@ -212,6 +216,15 @@
 				6361487119AA8DFF0030A35D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6376442819AE77E20026DE7B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6376442919AE783D0026DE7B /* NSArray+Randomize.h */,
+				6376442A19AE783D0026DE7B /* NSArray+Randomize.m */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +342,7 @@
 				6361489C19ABA5BD0030A35D /* Boss.m in Sources */,
 				6361489919ABA5A90030A35D /* Tile.m in Sources */,
 				6361486219AA8DFF0030A35D /* ViewController.m in Sources */,
+				6376442B19AE783D0026DE7B /* NSArray+Randomize.m in Sources */,
 				6361485F19AA8DFF0030A35D /* AppDelegate.m in Sources */,
 				6361489619ABA5900030A35D /* Factory.m in Sources */,
 				636148A219ABA6980030A35D /* Weapon.m in Sources */,
