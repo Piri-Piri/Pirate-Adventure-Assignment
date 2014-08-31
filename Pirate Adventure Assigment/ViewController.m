@@ -115,19 +115,34 @@
     self.southButton.hidden = [self tileExistsAtPoint:CGPointMake(self.currentPosition.x, self.currentPosition.y-1)];
     
     
-    // normal tile: disable move buttons, if action is force on this tile
-    // boss fight tile: diable move buttons, if boss has at least attack ones (retain fight)
+    
     Tile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    
+    // disbale action, if already performed
+    self.actionButton.enabled = !currentTile.isTileActionPerformed;
+    
     if (currentTile.isTileActionForced){
+         // forced tile: disable move buttons
         self.northButton.enabled = currentTile.isTileActionPerformed;
         self.westButton.enabled = currentTile.isTileActionPerformed;
         self.eastButton.enabled = currentTile.isTileActionPerformed;
         self.southButton.enabled = currentTile.isTileActionPerformed;
-    } else if (currentTile.isTileABossFight){
+    } else {
+        // normal tile: enable move buttons
+        self.northButton.enabled = YES;
+        self.westButton.enabled = YES;
+        self.eastButton.enabled = YES;
+        self.southButton.enabled = YES;
+    }
+    
+    // boss fight tile: diable move buttons, if boss has at least attack ones (retain fight)
+    if (currentTile.isTileABossFight){
         self.northButton.enabled = self.boss.hasAttacked;
         self.westButton.enabled = self.boss.hasAttacked;
         self.eastButton.enabled = self.boss.hasAttacked;
         self.southButton.enabled = self.boss.hasAttacked;
+        // boss fight tile: allow action can be performed more than once
+        self.actionButton.enabled = YES;
     }
 }
 
@@ -158,6 +173,9 @@
                         self.armorLabel.text = self.pirate.currentArmor.name;
     
                         [self.actionButton setTitle:currentTile.tileAction forState:UIControlStateNormal];
+                        
+                        self.tileCapacityLabel.text = [NSString stringWithFormat:@"[%i/%i]", (int)[self.tiles count], (int)[[self.tiles objectAtIndex:self.currentPosition.x] count]];
+                        self.currentPositionLabel.text = [NSString stringWithFormat:@"(%i,%i)", (int)self.currentPosition.x, (int)self.currentPosition.y];
                     } completion:nil];
 }
 
