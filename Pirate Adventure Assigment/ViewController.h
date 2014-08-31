@@ -20,6 +20,8 @@
 
 // IBOutlets
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UILabel *tileCapacityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentPositionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *healthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *damageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weaponLabel;
