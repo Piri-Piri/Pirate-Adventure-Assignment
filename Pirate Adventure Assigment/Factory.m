@@ -24,9 +24,7 @@
     Tile *tile1 = [[Tile alloc] init];
     tile1.tileImage = [UIImage imageNamed:@"PirateStart.jpg"];
     tile1.tileAction = @"Take the sword";
-    tile1.tileStory = @"Captain, we need a fearless leader such as you to undertake a voyage.\
-                        You must stop the evil pirate Boss before he steals any more plunder.\
-                        Would you like a blunted sword to get started?";
+    tile1.tileStory = @"Captain, we need a fearless leader such as you to undertake a voyage. You must stop the evil pirate Boss before he steals any more plunder. Would you like a blunted sword to get started?";
     Weapon *bluntedSword = [[Weapon alloc] init];
     bluntedSword.name = @"Blunted Sword";
     bluntedSword.damage = 12;
@@ -62,8 +60,7 @@
     Tile *tile4 = [[Tile alloc] init];
     tile4.tileImage = [UIImage imageNamed:@"PirateParrot.jpg"];
     tile4.tileAction = @"Adopt Parrot";
-    tile4.tileStory = @"You have found a parrot can be used in your armor slot!\
-                        Parrots are a great defender and are fiercly loyal to their captain.";
+    tile4.tileStory = @"You have found a parrot can be used in your armor slot! Parrots are a great defender and are fiercly loyal to their captain.";
     Armor *parrotArmor = [[Armor alloc] init];
     parrotArmor.health = 20;
     parrotArmor.name = @"Parrot Armor";
@@ -76,8 +73,7 @@
     Tile *tile5 = [[Tile alloc] init];
     tile5.tileImage = [UIImage imageNamed:@"PirateWeapons.jpeg"];
     tile5.tileAction = @"Take pistol";
-    tile5.tileStory = @"You have stumbled upon a cache of pirate weapons.\
-                        Would you like to upgrade to a pistol?";
+    tile5.tileStory = @"You have stumbled upon a cache of pirate weapons. Would you like to upgrade to a pistol?";
     Weapon *pistolWeapon = [[Weapon alloc] init];
     pistolWeapon.name = @"Pistol";
     pistolWeapon.damage = 12;
@@ -140,8 +136,7 @@
     Tile *tile11 = [[Tile alloc] init];
     tile11.tileImage = [UIImage imageNamed:@"PirateTreasurer2.jpeg"];
     tile11.tileAction = @"Swim deeper";
-    tile11.tileStory = @"In the deep of the sea many things live and many things can be found.\
-                        Will the fortune bring help or ruin?";
+    tile11.tileStory = @"In the deep of the sea many things live and many things can be found. Will the fortune bring help or ruin?";
     tile11.healthEffect = -7;
     tile11.isTileABossFight = NO;
     tile11.isTileActionForced = NO;
